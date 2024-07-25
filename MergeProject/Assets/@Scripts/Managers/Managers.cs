@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static GameSaveData;
 
 public class Managers : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Managers : MonoBehaviour
     public static string Jwt { get; set; }
 
     #region Core
+    private GameManager _game = new GameManager();
     private DataManager _data = new DataManager();
     private PoolManager _pool = new PoolManager();
     private ResourceManager _resource = new ResourceManager();
@@ -18,6 +20,7 @@ public class Managers : MonoBehaviour
     private UIManager _ui = new UIManager();
     private WebManager _web = new WebManager();
 
+    public static GameManager Game { get { return Instance?._game; } }
     public static DataManager Data { get { return Instance?._data; } }
     public static PoolManager Pool { get { return Instance?._pool; } }
     public static ResourceManager Resource { get { return Instance?._resource; } }

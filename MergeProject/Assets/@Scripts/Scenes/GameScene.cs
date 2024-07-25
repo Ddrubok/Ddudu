@@ -12,13 +12,29 @@ public class GameScene : BaseScene
 
 		SceneType = EScene.GameScene;
 
-		// TODO
+        // TODO
 
-		return true;
+        StartLoadAssets();
+
+        return true;
 	}
 
 	public override void Clear()
 	{
 
 	}
+
+    void StartLoadAssets()
+    {
+        Managers.Resource.LoadAllAsync<Object>("PreLoad", (key, count, totalCount) =>
+        {
+            Debug.Log($"{key} {count}/{totalCount}");
+
+            if (count == totalCount)
+            {
+                //Managers.Data.Init();
+                Managers.Resource.Instantiate("Human");
+            }
+        });
+    }
 }
