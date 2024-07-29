@@ -50,32 +50,32 @@ public class Test_script : MonoBehaviour
         stealing_position = new Vector3(0,0.04185915f,-0.07200003f);
         stealing_Rotation = new Vector3(0,180,0);
 
-        way_points.Clear();
-        Sitting_points.Clear();
-        Stealing_points.Clear();
-        pick_up_points.Clear();
+        //way_points.Clear();
+        //Sitting_points.Clear();
+        //Stealing_points.Clear();
+        //pick_up_points.Clear();
 
-        GameObject[] waypointsFind = GameObject.FindGameObjectsWithTag("waypoint");
-        GameObject[] SittingpointsFind = GameObject.FindGameObjectsWithTag("sittingpoint");
-        GameObject[] stealingpointsFind = GameObject.FindGameObjectsWithTag("stealingpoint");
-        GameObject[] pick_up_pointsFind = GameObject.FindGameObjectsWithTag("pickuppoint");
+        //GameObject[] waypointsFind = GameObject.FindGameObjectsWithTag("waypoint");
+        //GameObject[] SittingpointsFind = GameObject.FindGameObjectsWithTag("sittingpoint");
+        //GameObject[] stealingpointsFind = GameObject.FindGameObjectsWithTag("stealingpoint");
+        //GameObject[] pick_up_pointsFind = GameObject.FindGameObjectsWithTag("pickuppoint");
 
-        foreach(GameObject g in waypointsFind)
-        {
-            way_points.Add(g);
-        }
-        foreach (GameObject g in SittingpointsFind)
-        {
-            Sitting_points.Add(g);
-        }
-        foreach (GameObject g in stealingpointsFind)
-        {
-            Stealing_points.Add(g);
-        }
-        foreach (GameObject g in pick_up_pointsFind)
-        {
-            pick_up_points.Add(g);
-        }
+        //foreach(GameObject g in waypointsFind)
+        //{
+        //    way_points.Add(g);
+        //}
+        //foreach (GameObject g in SittingpointsFind)
+        //{
+        //    Sitting_points.Add(g);
+        //}
+        //foreach (GameObject g in stealingpointsFind)
+        //{
+        //    Stealing_points.Add(g);
+        //}
+        //foreach (GameObject g in pick_up_pointsFind)
+        //{
+        //    pick_up_points.Add(g);
+        //}
 
 
     }
@@ -184,49 +184,46 @@ public class Test_script : MonoBehaviour
             sit = false;
             steal = false;
             pick_up = false;
+            //if(what_to_choose == 0)
+            //{
+            //    walk = true;
 
+            //    int Which_point = UnityEngine.Random.Range(0, way_points.Count);
+            //    aim_point = way_points[Which_point].gameObject;
+            //    destermine_new_aim = true;
+            //}
+            //if (what_to_choose == 1)
+            //{
+            //    run = true;
 
+            //    int Which_point = UnityEngine.Random.Range(0, way_points.Count );
+            //    aim_point = way_points[Which_point].gameObject;
+            //    destermine_new_aim = true;
+            //}
+            //if (what_to_choose == 2)
+            //{
+            //    sit = true;
 
-            if(what_to_choose == 0)
-            {
-                walk = true;
+            //    int Which_point = UnityEngine.Random.Range(0, Sitting_points.Count );
+            //    aim_point = Sitting_points[Which_point].gameObject;
+            //    destermine_new_aim = true;
+            //}
+            //if (what_to_choose == 3)
+            //{
+            //    steal = true;
 
-                int Which_point = UnityEngine.Random.Range(0, way_points.Count);
-                aim_point = way_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 1)
-            {
-                run = true;
+            //    int Which_point = UnityEngine.Random.Range(0, Stealing_points.Count );
+            //    aim_point = Stealing_points[Which_point].gameObject;
+            //    destermine_new_aim = true;
+            //}
+            //if (what_to_choose == 4)
+            //{
+            //    pick_up = true;
 
-                int Which_point = UnityEngine.Random.Range(0, way_points.Count );
-                aim_point = way_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 2)
-            {
-                sit = true;
-
-                int Which_point = UnityEngine.Random.Range(0, Sitting_points.Count );
-                aim_point = Sitting_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 3)
-            {
-                steal = true;
-
-                int Which_point = UnityEngine.Random.Range(0, Stealing_points.Count );
-                aim_point = Stealing_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
-            if (what_to_choose == 4)
-            {
-                pick_up = true;
-
-                int Which_point = UnityEngine.Random.Range(0, pick_up_points.Count );
-                aim_point = pick_up_points[Which_point].gameObject;
-                destermine_new_aim = true;
-            }
+            //    int Which_point = UnityEngine.Random.Range(0, pick_up_points.Count );
+            //    aim_point = pick_up_points[Which_point].gameObject;
+            //    destermine_new_aim = true;
+            //}
 
         }
         if (destermine_new_aim)
@@ -368,10 +365,10 @@ public class Test_script : MonoBehaviour
 
 
 
-    public List<GameObject> way_points = new List<GameObject>();
-    public List<GameObject> Sitting_points = new List<GameObject>();
-    public List<GameObject> Stealing_points = new List<GameObject>();
-    public List<GameObject> pick_up_points = new List<GameObject>();
+    //public List<GameObject> way_points = new List<GameObject>();
+    //public List<GameObject> Sitting_points = new List<GameObject>();
+    //public List<GameObject> Stealing_points = new List<GameObject>();
+    //public List<GameObject> pick_up_points = new List<GameObject>();
 
   
 
