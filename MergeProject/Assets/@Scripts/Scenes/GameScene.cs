@@ -33,7 +33,8 @@ public class GameScene : BaseScene
             if (count == totalCount)
             {
                 //Managers.Data.Init();
-                Managers.Resource.Instantiate("Human");
+                //Managers.Resource.Instantiate("Human");
+                Managers.Object.Spawn<PlayerController>(Vector3.zero);
             }
         });
     }

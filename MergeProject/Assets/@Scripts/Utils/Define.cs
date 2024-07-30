@@ -4,57 +4,63 @@ using UnityEngine;
 
 public static class Define
 {
-	public enum EScene
+    public enum ObjectType
+    {
+        Player,
+        Consumer,
+        Stuff,
+    }
+
+    public enum HumanState
+    {
+        Idle,
+        Move,
+        Talking,
+        BackHome,
+
+    }
+
+    public enum CustomerSituation
+    {
+        BreadPick,
+        Paying,
+        WantTable,
+        BackHome,
+    }
+
+    public enum PaperBagState
+    {
+        Appear,
+        Close
+    }
+
+    public static float CroassantSpeed = 104.0f;
+    public static float OvenTime = 1.0f;
+    public static int MaxBread = 8;
+
+    public static float StuffHeight = 5.0f;
+
+    public static float StackingHeight = 0.3f;
+
+    public static int minCustomerBreadValue = 2;
+    public static int maxCustomerBreadValue = 5;
+    public static int MaxCustomerCount = 3;
+
+    public static float sellBreadX = -0.8f;
+
+    public static int BreadValue = 5;
+
+    public static float CustomerLength = 1.5f;
+    public static float CustomerWidth = 3.0f;
+
+    public static int TableBreadValue = 2;
+    public enum EScene
 	{
 		TitleScene,
 		GameScene,
         Unknown,
     }
 
-    public enum KoreanAlphabet
-    {
-        ぁ,
-        あ,
-        い,
-        ぇ,
-        え,
-        ぉ,
-        け,
-        げ,
-        こ,
-        さ,
-        ざ,
-        し,
-        じ,
-        す,
-        ず,
-        せ,
-        ぜ,
-        そ,
-        ぞ,
-        た,
-        だ,
-        ち,
-        ぢ,
-        っ,
-        つ,
-        づ,
-        て,
-        で,
-        と,
-        ど,
-        な,
-        に,
-        ぬ,
-        ね,
-        の,
-        は,
-        ば,
-        ぱ,
-        ひ,
-        び,
-        last,
-    }
     public enum EUIEvent
 	{
 		Click,
@@ -69,12 +75,5 @@ public static class Define
 		Effect,
 		Max,
 	}
-    public enum EProviderType
-    {
-        None= 0,
-        Guest =1,
-        Google=2,
-        Facebook=3,
-
-    }
+   
 }

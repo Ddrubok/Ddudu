@@ -235,7 +235,7 @@ public class clothing : MonoBehaviour
 
     void PlayerInit()
     {
-        StartCoroutine(start_CustomClothing(1, 0, 0, 0, 0, 0, 1, true, 1, false, 0, 0, false, 0, 0, 0, 0));
+        StartCoroutine(start_CustomClothing(1, 0, 0, 0, 0, 0, 1, true, 1, false, 0, 0, false, 0, 0, 0, 0));  
     }
 
     IEnumerator start_CustomClothing(

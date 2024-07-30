@@ -19,6 +19,7 @@ public class Managers : MonoBehaviour
     private SoundManager _sound = new SoundManager();
     private UIManager _ui = new UIManager();
     private WebManager _web = new WebManager();
+    private ObjectManager _object = new ObjectManager();
 
     public static GameManager Game { get { return Instance?._game; } }
     public static DataManager Data { get { return Instance?._data; } }
@@ -28,6 +29,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance?._sound; } }
     public static UIManager UI { get { return Instance?._ui; } }
 
+    public static ObjectManager Object { get { return Instance?._object; } }
     public static WebManager Web { get { return Instance?._web; } }
 
     #endregion

@@ -43,6 +43,11 @@ public class GameSaveData
 
     public class GameManager
     {
+
+        private CameraController _camera;
+        public CameraController Camera { get { return _camera; } set { _camera = value; } }
+
+        public PlayerController Player { get { return Managers.Object?.Player; } }
         #region GameData
         GameSaveData _saveData = new GameSaveData();
         public GameSaveData SaveData { get { return _saveData; } set { _saveData = value; } }
@@ -84,7 +89,7 @@ public class GameSaveData
 
 
         #region Action
-        public event Action<Vector2> OnMoveDirChanged;
+        public event Action<Vector3> OnMoveDirChanged;
         #endregion
     }
     #endregion
