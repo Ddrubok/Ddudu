@@ -16,7 +16,7 @@ public class PlayerController : HumanController
     public void MaxTextPos(float _y)
     {
         _maxText.SetActive(true);
-       _maxText.transform.localPosition = Vector3.up * _y;
+        _maxText.transform.localPosition = Vector3.up * _y;
     }
     public override bool Init()
     {
@@ -43,7 +43,7 @@ public class PlayerController : HumanController
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
             agent.velocity = Vector3.forward;
-         //   HumanState = Define.HumanState.Move;
+            //   HumanState = Define.HumanState.Move;
         }
         else
         {
@@ -58,7 +58,7 @@ public class PlayerController : HumanController
     {
         base.UpdateController();
 
-      //  MovePlayer();
+        MovePlayer();
     }
 
     void OnDestroy()
