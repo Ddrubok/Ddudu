@@ -13,8 +13,8 @@ public class CameraController : MonoBehaviour
 
     private float smoothSpeed = 0.05f;
     private float threshold = 0.1f;
-    private float yValue = 0.0f;
-    private float zValue = -10.0f;
+    private float yValue = 10.0f;
+    private float zValue = 0;
     void Start()
     {
         Managers.Game.Camera = this;

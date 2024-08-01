@@ -9,18 +9,26 @@ public class MoveController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
     [SerializeField]
     Image _handler;
 
+    [SerializeField]
+    Image _background;
+
     Vector2 _touchPosition;
     Vector2 _moveDir;
 
     void Start()
     {
         Debug.Log("start");
+
+        if (Application.platform == RuntimePlatform.WindowsPlayer|| Application.platform == RuntimePlatform.WindowsEditor)
+        {
+            _background.raycastTarget = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        ProcessKeyboardInput();
     }
 
     public void OnPointerClick(UnityEngine.EventSystems.PointerEventData eventData)
@@ -55,6 +63,35 @@ public class MoveController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
         _handler.transform.position = newPosition;
 
        
-        Managers.Game.MoveDir = new Vector3(-_moveDir.x, 0.0f, -_moveDir.y);
+        Managers.Game.MoveDir = new Vector3(_moveDir.x, 0.0f, _moveDir.y);
+    }
+
+    private void ProcessKeyboardInput()
+    {
+        // WASD 또는 화살표 키 입력 처리
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // 이동 방향 벡터 계산
+        _moveDir = new Vector2(horizontalInput, verticalInput).normalized;
+
+        if (_moveDir.magnitude > 0.1f)
+        {
+          
+            // 새로운 핸들 위치 계산
+            Vector2 newPosition = _touchPosition + _moveDir;
+            _handler.transform.position = newPosition;
+
+            // 이동 방향 업데이트
+            Managers.Game.MoveDir = _moveDir;
+
+            Debug.Log(Managers.Game.MoveDir);
+        }
+        else
+        {
+            _moveDir = Vector2.zero;
+
+            Managers.Game.MoveDir = Vector3.zero;
+        }
     }
 }

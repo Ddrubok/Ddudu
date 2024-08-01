@@ -57,15 +57,15 @@ public class HumanController : BaseController
     //    }
     //}
 
-    //public override bool Init()
-    //{
-    //    base.Init();
-    //    _animator = GetComponentInChildren<Animator>();
-    //    HumanState = Define.HumanState.Idle;
-    //    agent = GetComponent<NavMeshAgent>();
+    public override bool Init()
+    {
+        base.Init();
+        //_animator = GetComponentInChildren<Animator>();
+        //HumanState = Define.HumanState.Idle;
+        agent = GetComponent<NavMeshAgent>();
 
-    //    return true;
-    //}
+        return true;
+    }
 
     //protected bool _talking = false;
 

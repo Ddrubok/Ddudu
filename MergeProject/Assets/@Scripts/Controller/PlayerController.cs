@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class PlayerController : HumanController
 {
@@ -23,26 +24,30 @@ public class PlayerController : HumanController
         base.Init();
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
         Managers.Game.Camera.TargetChange(gameObject);
+        
         return true;
     }
 
     void HandleOnMoveDirChanged(Vector3 dir)
     {
         _moveDir = dir;
+        MovePlayer();
     }
 
     void MovePlayer()
     {
-        Vector3 dir = _moveDir * _speed * Time.deltaTime;
+        Vector3 dir = new Vector3(_moveDir.x, 0.0f, _moveDir.y) * _speed * Time.deltaTime;
         transform.position += dir;
-
+        Debug.Log("_moveDir : " + _moveDir);
         if (dir != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(dir);
 
+            Debug.Log("rotation : "+targetRotation);
+
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
-            agent.velocity = Vector3.forward;
+            //agent.velocity = Vector3.forward;
             //   HumanState = Define.HumanState.Move;
         }
         else
@@ -58,7 +63,7 @@ public class PlayerController : HumanController
     {
         base.UpdateController();
 
-        MovePlayer();
+        //MovePlayer();
     }
 
     void OnDestroy()
