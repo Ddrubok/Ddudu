@@ -5,8 +5,8 @@ using UnityEngine.AI;
 
 public class HumanController : BaseController
 {
-    //[SerializeField]
-    //private Define.HumanState _humanState = Define.HumanState.Idle;
+    [SerializeField]
+    private Define.HumanState _humanState = Define.HumanState.Idle;
 
     //[SerializeField]
     //Transform _breadTransform;
@@ -25,43 +25,48 @@ public class HumanController : BaseController
     protected float _speed = 3.0f;
     protected float _rotationSpeed = 10.0f;
 
-    //protected Animator _animator;
+    [SerializeField]
+    protected Animator _animator;
 
     protected NavMeshAgent agent;
 
-    //public Define.HumanState HumanState
-    //{
-    //    get { return _humanState; }
-    //    set
-    //    {
-    //        _humanState = value;
-    //        UpdateAnimation();
-    //    }
-    //}
+    public Define.HumanState HumanState
+    {
+        get { return _humanState; }
+        set
+        {
+            _humanState = value;
+            UpdateAnimation();
+        }
+    }
 
-    //public virtual void UpdateAnimation()
-    //{
-    //    switch (HumanState)
-    //    {
-    //        case Define.HumanState.Idle:
-    //            _animator.Play("Idle");
-    //            break;
+    public virtual void UpdateAnimation()
+    {
+        switch (HumanState)
+        {
+            case Define.HumanState.Idle:
+                _animator.Play("idle");
+                _animator.SetInteger("arms", 5);
+                _animator.SetInteger("legs", 5);
+                break;
 
-    //        case Define.HumanState.Move:
-    //            _animator.Play("Move");
-    //            break;
+            case Define.HumanState.Move:
+                _animator.Play("walk");
+                _animator.SetInteger("arms", 1);
+                _animator.SetInteger("legs", 1);
+                break;
 
-    //        case Define.HumanState.Talking:
-    //            _animator.Play("Talking");
-    //            break;
-    //    }
-    //}
+            case Define.HumanState.Talking:
+                _animator.Play("Talking");
+                break;
+        }
+    }
 
     public override bool Init()
     {
         base.Init();
-        //_animator = GetComponentInChildren<Animator>();
-        //HumanState = Define.HumanState.Idle;
+        _animator = GetComponentInChildren<Animator>();
+        HumanState = Define.HumanState.Idle;
         agent = GetComponent<NavMeshAgent>();
 
         return true;
