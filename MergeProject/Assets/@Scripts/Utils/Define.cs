@@ -17,7 +17,11 @@ public static class Define
         Move,
         Talking,
         BackHome,
+    }
 
+    public enum StuffType
+    {
+        None,
     }
 
     public enum CustomerSituation
