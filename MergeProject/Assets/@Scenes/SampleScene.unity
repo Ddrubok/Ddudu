@@ -424,6 +424,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &526364755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.250473
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.0470676
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.320972
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.00000032584137
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3471181906405354074, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441465609919112956, guid: 5603c031326438441917e661430b7b39, type: 3}
+      propertyPath: m_Name
+      value: AirFryer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5603c031326438441917e661430b7b39, type: 3}
 --- !u!1 &600619149
 GameObject:
   m_ObjectHideFlags: 0
@@ -1175,3 +1232,4 @@ SceneRoots:
   - {fileID: 356265811}
   - {fileID: 32755354}
   - {fileID: 1485246453}
+  - {fileID: 526364755}

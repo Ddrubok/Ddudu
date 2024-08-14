@@ -31,6 +31,13 @@ public class ObjectManager
 
             return pc as T;
         }
+        else if(type == typeof(DeliverableStuffController))
+        {
+            if(templateID == 0)
+            {
+                Debug.Log("감자입니다.");
+            }
+        }
         //else if (type == typeof(CustomerController))
         //{
         //    GameObject go = Manager.Resource.Instantiate("Prefabs\\Customer");

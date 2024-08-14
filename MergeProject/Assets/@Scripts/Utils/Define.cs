@@ -11,6 +11,12 @@ public static class Define
         Stuff,
     }
 
+    public enum FoodType
+    {
+        Potato,
+
+    }
+
     public enum HumanState
     {
         Idle,
