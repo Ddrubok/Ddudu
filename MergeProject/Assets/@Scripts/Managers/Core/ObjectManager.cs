@@ -35,7 +35,26 @@ public class ObjectManager
         {
             if(templateID == 0)
             {
-                Debug.Log("감자입니다.");
+                GameObject go = Managers.Resource.Instantiate("FrenchFrice");
+
+                go.transform.position = position;
+
+                FrenchFriceController fc = go.GetOrAddComponent<FrenchFriceController>();
+
+                return fc as T;
+            }
+        }
+        else if(type==typeof(StuffController))
+        {
+            if (templateID == 0)
+            {
+                GameObject go = Managers.Resource.Instantiate("AirFryer");
+
+                go.transform.position = position;
+
+                AirFryerController ac = go.GetOrAddComponent<AirFryerController>();
+
+                return ac as T;
             }
         }
         //else if (type == typeof(CustomerController))

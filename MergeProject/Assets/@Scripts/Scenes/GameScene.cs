@@ -35,6 +35,8 @@ public class GameScene : BaseScene
                 //Managers.Data.Init();
                 //Managers.Resource.Instantiate("Human");
                 Managers.Object.Spawn<PlayerController>(Vector3.zero);
+
+                Managers.Object.Spawn<StuffController>(Vector3.zero,0);
             }
         });
     }
