@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.UI;
 using static Define;
 
 public class BaseController : MonoBehaviour
 {
     public ObjectType ObjectType { get; protected set; }
+
+    public OutLineApply outLine;
 
     void Awake()
     {
@@ -29,6 +33,10 @@ public class BaseController : MonoBehaviour
 
     }
 
+    protected void OutLine()
+    {
+        outLine= gameObject.GetOrAddComponent<OutLineApply>();
+    }
     
 
     public virtual void UpdateController()

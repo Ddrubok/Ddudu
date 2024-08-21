@@ -829,6 +829,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503486140642576289}
+  - component: {fileID: 3261675607575408357}
   m_Layer: 0
   m_Name: DrinkMachine
   m_TagString: Untagged
@@ -852,6 +853,18 @@ Transform:
   - {fileID: 5114349309082402869}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3261675607575408357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7832078944801077492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad766b86970b3fa44b2c26a695d2760e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8247858761450637210
 GameObject:
   m_ObjectHideFlags: 0

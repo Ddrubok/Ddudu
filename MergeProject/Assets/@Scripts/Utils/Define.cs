@@ -14,6 +14,16 @@ public static class Define
     public enum FoodType
     {
         Potato,
+        Coke,
+
+
+    }
+
+    public enum CookingAreaType
+    {
+        AirFryer,
+        DrinkMachine,
+
 
     }
 
@@ -65,25 +75,25 @@ public static class Define
 
     public static int TableBreadValue = 2;
     public enum EScene
-	{
-		TitleScene,
-		GameScene,
+    {
+        TitleScene,
+        GameScene,
         Unknown,
     }
 
     public enum EUIEvent
-	{
-		Click,
-		PointerDown,
-		PointerUp,
-		Drag,
-	}
+    {
+        Click,
+        PointerDown,
+        PointerUp,
+        Drag,
+    }
 
-	public enum ESound
-	{
-		Bgm,
-		Effect,
-		Max,
-	}
-   
+    public enum ESound
+    {
+        Bgm,
+        Effect,
+        Max,
+    }
+
 }

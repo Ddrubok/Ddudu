@@ -13,6 +13,8 @@ public class ObjectManager
 
     public Dictionary<string, Sprite> DicSprite = new Dictionary<string, Sprite>();
 
+    public Material OutLine;
+
 
     public T Spawn<T>(Vector3 position, int templateID = 0, Transform parent = null) where T : BaseController
     {
@@ -43,8 +45,18 @@ public class ObjectManager
 
                 return fc as T;
             }
+            else if(templateID == 1)
+            {
+                GameObject go = Managers.Resource.Instantiate("Coke");
+
+                go.transform.position = position;
+
+                CokeContoller cc = go.GetOrAddComponent<CokeContoller>();
+
+                return cc as T;
+            }
         }
-        else if(type==typeof(StuffController))
+        else if(type==typeof(CookingAreaController))
         {
             if (templateID == 0)
             {

@@ -34,9 +34,11 @@ public class GameScene : BaseScene
             {
                 //Managers.Data.Init();
                 //Managers.Resource.Instantiate("Human");
+                Managers.Object.OutLine = Managers.Resource.Load<Material>("OutLine");
+
                 Managers.Object.Spawn<PlayerController>(Vector3.zero);
 
-                Managers.Object.Spawn<StuffController>(Vector3.zero,0);
+                Managers.Object.Spawn<CookingAreaController>(Vector3.zero,(int)CookingAreaType.AirFryer);
             }
         });
     }
