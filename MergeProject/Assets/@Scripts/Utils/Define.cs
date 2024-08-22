@@ -15,7 +15,8 @@ public static class Define
     {
         Potato,
         Coke,
-
+        Burger,
+        Hotdog,
 
     }
 
@@ -23,6 +24,9 @@ public static class Define
     {
         AirFryer,
         DrinkMachine,
+        BurgerStove,
+        HotdogStove,
+
 
 
     }

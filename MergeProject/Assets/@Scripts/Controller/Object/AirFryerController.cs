@@ -12,7 +12,7 @@ public class AirFryerController : CookingAreaController
     protected override void CreateFood( Vector3 _pos)
     {
         Managers.Object.Spawn<DeliverableStuffController>(_pos, (int)FoodType.Potato);
-        OutLine();
+        SetOutLine();
     }
 
 }

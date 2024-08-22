@@ -9,14 +9,14 @@ public class BaseController : MonoBehaviour
 {
     public ObjectType ObjectType { get; protected set; }
 
-    public OutLineApply outLine;
+    protected OutLineApply outLine;
 
     void Awake()
     {
         Init();
     }
 
-     bool _init = false;
+    bool _init = false;
     public virtual bool Init()
     {
         if (_init)
@@ -33,11 +33,23 @@ public class BaseController : MonoBehaviour
 
     }
 
-    protected void OutLine()
+    protected void SetOutLine()
     {
-        outLine= gameObject.GetOrAddComponent<OutLineApply>();
+        outLine = gameObject.GetOrAddComponent<OutLineApply>();
     }
-    
+
+    protected void OutLineOn()
+    {
+        if (outLine != null)
+            outLine.OutLineOn();
+    }
+    protected void OutLineOff()
+    {
+        if (outLine != null)
+            outLine.OutLineOff();
+    }
+
+
 
     public virtual void UpdateController()
     {

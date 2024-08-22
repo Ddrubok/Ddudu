@@ -55,6 +55,26 @@ public class ObjectManager
 
                 return cc as T;
             }
+            else if(templateID== 2)
+            {
+                GameObject go = Managers.Resource.Instantiate("Burger");
+
+                go.transform.position = position;
+
+                BurgerController bc = go.GetOrAddComponent<BurgerController>();
+
+                return bc as T;
+            }
+            else if(templateID == 3)
+            {
+                GameObject go = Managers.Resource.Instantiate("Hotdog");
+
+                go.transform.position = position;
+
+                HotdogController hc = go.GetOrAddComponent<HotdogController>();
+
+                return hc as T;
+            }
         }
         else if(type==typeof(CookingAreaController))
         {
@@ -67,6 +87,36 @@ public class ObjectManager
                 AirFryerController ac = go.GetOrAddComponent<AirFryerController>();
 
                 return ac as T;
+            }
+            else if( templateID == 1)
+            {
+                GameObject go = Managers.Resource.Instantiate("DrinkMachine");
+
+                go.transform.position = position;
+
+                DrinkMachineController dm = go.GetOrAddComponent<DrinkMachineController>();
+
+                return dm as T;
+            }
+            else if(templateID== 2)
+            {
+                GameObject go = Managers.Resource.Instantiate("GasStove");
+
+                go.transform.position = position;
+
+                BurgerMakerController bm = go.GetOrAddComponent<BurgerMakerController>();
+
+                return bm as T;
+            }
+            else if(templateID== 3) 
+            {
+                GameObject go = Managers.Resource.Instantiate("GasStove");
+
+                go.transform.position = position;
+
+                HotdogMakerController hm = go.GetOrAddComponent<HotdogMakerController>();
+
+                return hm as T;
             }
         }
         //else if (type == typeof(CustomerController))
