@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SpriteOutline : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer; 
-    public Color outlineColor { get; set; } = Color.yellow; 
-    public float outlineThickness { get; set; } = 0.5f; 
+    private SpriteRenderer spriteRenderer;
+    public Color outlineColor { get; set; } = new Color(0.9921875f, 0.98828125f, 0.28125f);
+    public float outlineThickness { get; set; } = 0.25f; 
 
     private GameObject outlineObject; 
     void Start()
