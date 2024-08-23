@@ -41,6 +41,17 @@ public class GameSaveData
         public int EnchantCount;
     }
 
+    public class FoodTableData
+    {
+        public FoodTableData(int n, FoodType ft)
+        {
+            type = ft;
+            num = n;
+        }
+        public int num =0;
+        public FoodType type = FoodType.None;
+    }
+
     public class GameManager
     {
 
@@ -85,8 +96,26 @@ public class GameSaveData
         //}
         //#endregion
 
+        #region FoodChange
+        FoodTableData _changeFoodType = new FoodTableData(0,FoodType.None);
 
+        public FoodTableData ChangeFoodType
+        {
+            get { return _changeFoodType; }
+            set
+            {
+                _changeFoodType = value;
+                OnPlusFoodChanged?.Invoke(value);
+            }
+        }
 
+        public void changeFood(int num, FoodType ft)
+        {
+            ChangeFoodType = new FoodTableData( num,ft);
+        }
+
+        public event Action<FoodTableData> OnPlusFoodChanged;
+        #endregion
 
         #region Action
         public event Action<Vector3> OnMoveDirChanged;

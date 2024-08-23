@@ -40,7 +40,7 @@ public class GameScene : BaseScene
 
                 //Managers.Object.Spawn<CookingAreaController>(Vector3.zero,(int)CookingAreaType.BurgerStove);
                 //Managers.Object.Spawn<CookingAreaController>(Vector3.right,(int)CookingAreaType.HotdogStove);
-                //Managers.Object.Spawn<CookingAreaController>(Vector3.zero,(int)CookingAreaType.FoodTable);
+                Managers.Object.Spawn<CookingAreaController>(Vector3.zero,(int)CookingAreaType.AirFryer);
 
 
 

@@ -5,14 +5,18 @@ using static Define;
 
 public class AirFryerController : CookingAreaController
 {
-    private void Start()
+    protected override void CreateFood( Vector3 _pos )
     {
-        CreateFood( Vector3.zero);
-    }
-    protected override void CreateFood( Vector3 _pos)
-    {
-        Managers.Object.Spawn<DeliverableStuffController>(_pos, (int)FoodType.Potato);
-        SetOutLine();
+        //Managers.Object.Spawn<DeliverableStuffController>(_pos, (int)FoodType.Potato);
+        //SetOutLine();
+
+        Managers.Game.changeFood(1, FoodType.Potato);
+        
     }
 
+
+    public override void UpdateController()
+    {
+        CreateFood(Vector3.zero);
+    }
 }
