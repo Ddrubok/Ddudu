@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class ObjectManager
@@ -117,6 +118,16 @@ public class ObjectManager
                 HotdogMakerController hm = go.GetOrAddComponent<HotdogMakerController>();
 
                 return hm as T;
+            }
+            else if(templateID == 4)
+            {
+                GameObject go = Managers.Resource.Instantiate("FoodTable");
+
+                go.transform.position = position;
+
+                FoodTable ft = go.GetOrAddComponent<FoodTable>();
+
+                return ft as T;
             }
         }
         //else if (type == typeof(CustomerController))

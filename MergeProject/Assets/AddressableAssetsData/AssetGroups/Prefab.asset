@@ -71,6 +71,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - PreLoad
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 262c0d6c25e07a94585ef3155ce02199
+    m_Address: FoodTable
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: c969215a461324a4f9aec2586d11d8ef, type: 2}
   m_SchemaSet:

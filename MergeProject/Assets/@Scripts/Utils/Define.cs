@@ -14,9 +14,11 @@ public static class Define
     public enum FoodType
     {
         Potato,
-        Coke,
         Burger,
         Hotdog,
+        Coke,
+
+        None
 
     }
 
@@ -26,7 +28,7 @@ public static class Define
         DrinkMachine,
         BurgerStove,
         HotdogStove,
-
+        FoodTable,
 
 
     }
@@ -37,6 +39,7 @@ public static class Define
         Move,
         Talking,
         BackHome,
+        Run
     }
 
     public enum StuffType

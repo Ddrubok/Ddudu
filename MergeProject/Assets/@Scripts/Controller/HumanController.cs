@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -24,6 +25,8 @@ public class HumanController : BaseController
 
     protected float _speed = 3.0f;
     protected float _rotationSpeed = 10.0f;
+
+    protected float RunSpeed = 1.5f;
 
     [SerializeField]
     protected Animator _animator;
@@ -58,6 +61,12 @@ public class HumanController : BaseController
 
             case Define.HumanState.Talking:
                 _animator.Play("Talking");
+                break;
+
+            case Define.HumanState.Run:
+                _animator.Play("run");
+                _animator.SetInteger("arms", 2);
+                _animator.SetInteger("legs", 2);
                 break;
         }
     }

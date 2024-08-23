@@ -50,6 +50,13 @@ public class PlayerController : HumanController
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
             agent.velocity = Vector3.forward;
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                HumanState = Define.HumanState.Run;
+                transform.position += (dir*RunSpeed);
+            }
+            else
             HumanState = Define.HumanState.Move;
            
         }
