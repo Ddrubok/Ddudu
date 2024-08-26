@@ -29,6 +29,7 @@ public static class Define
         BurgerStove,
         HotdogStove,
         FoodTable,
+        None
 
 
     }

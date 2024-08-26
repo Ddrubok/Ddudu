@@ -109,7 +109,7 @@ public class GameSaveData
             }
         }
 
-        public void changeFood(int num, FoodType ft)
+        public void changeFood(FoodType ft, int num=1)
         {
             ChangeFoodType = new FoodTableData( num,ft);
         }

@@ -16,11 +16,19 @@ public class HotdogMakerController : GasStationController
 
         FoodIcon.gameObject.AddComponent<SpriteOutline>();
 
-       
-
-        CreateFood(Vector3.zero);
-
         return true;
     }
 
+    public override void UpdateController()
+    {
+        CreateFood(Vector3.zero);
+    }
+
+
+    protected override void CreateFood(Vector3 _pos)
+    {
+        // Managers.Object.Spawn<DeliverableStuffController>(_pos, (int)FoodType);
+
+        Managers.Game.changeFood(FoodType.Hotdog);
+    }
 }

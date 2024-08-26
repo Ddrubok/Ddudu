@@ -10,7 +10,7 @@ public class AirFryerController : CookingAreaController
         //Managers.Object.Spawn<DeliverableStuffController>(_pos, (int)FoodType.Potato);
         //SetOutLine();
 
-        Managers.Game.changeFood(1, FoodType.Potato);
+        Managers.Game.changeFood(FoodType.Potato);
         
     }
 
