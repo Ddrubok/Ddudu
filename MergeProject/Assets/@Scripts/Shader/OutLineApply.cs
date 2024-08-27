@@ -5,13 +5,13 @@ using UnityEngine;
 public class OutLineApply : MonoBehaviour
 {
     private Material instanceMaterial;
-    MeshRenderer[] meshRenderers;
+    Renderer[] meshRenderers;
 
     private bool isOutlineEnabled = false; // 아웃라인 활성화 상태
 
-    void Start()
+    void Awake()
     {
-        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        meshRenderers = GetComponentsInChildren<Renderer>();
         check();
     }
 
@@ -34,7 +34,7 @@ public class OutLineApply : MonoBehaviour
 
     void OutLine()
     {
-        foreach (MeshRenderer meshRenderer in meshRenderers)
+        foreach (Renderer meshRenderer in meshRenderers)
         {
             Material[] currentMaterials = meshRenderer.materials;
             Material[] newMaterials = new Material[currentMaterials.Length + 1];

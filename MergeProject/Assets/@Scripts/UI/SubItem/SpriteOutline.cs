@@ -7,7 +7,7 @@ public class SpriteOutline : MonoBehaviour
     public float outlineThickness { get; set; } = 0.25f; 
 
     private GameObject outlineObject; 
-    void Start()
+    void Awake()
     {
         spriteRenderer= GetComponent<SpriteRenderer>();
         CreateOutline();
@@ -30,7 +30,9 @@ public class SpriteOutline : MonoBehaviour
         outlineObject.transform.localScale = spriteRenderer.transform.localScale * (1.0f+outlineThickness);
 
         outlineObject.transform.SetParent(spriteRenderer.transform);
-        outlineObject.transform.localPosition = Vector3.zero; 
+        outlineObject.transform.localPosition = Vector3.zero;
+        outlineObject.transform.localRotation = Quaternion.identity;
+
     }
 
     Texture2D CreateOutlineTexture(Texture2D originalTexture)
@@ -54,5 +56,15 @@ public class SpriteOutline : MonoBehaviour
         outlineTexture.Apply();
 
         return outlineTexture;
+    }
+
+    public void OutLineOn()
+    {
+        outlineObject.SetActive(true);
+    }
+
+    public void OutLineOff()
+    {
+        outlineObject.SetActive(false); 
     }
 }

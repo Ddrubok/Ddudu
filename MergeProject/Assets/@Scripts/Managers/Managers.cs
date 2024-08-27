@@ -57,7 +57,11 @@ public class Managers : MonoBehaviour
     private void OnApplicationQuit()
     {
         if (s_instance != null)
+        {
             s_instance = null;
-        Destroy(gameObject);
+            Destroy(gameObject);
+        }
+          
+        
     }
 }

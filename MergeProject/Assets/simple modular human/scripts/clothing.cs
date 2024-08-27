@@ -1041,6 +1041,10 @@ public class clothing : MonoBehaviour
         yield return new WaitForSeconds(5);
     }
 
+    public void CustomerRandomInit()
+    {
+        StartCoroutine(start_random_clothing());
+    }
 
 
     private void Start()

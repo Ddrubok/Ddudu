@@ -17,7 +17,6 @@ public class MoveController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     void Start()
     {
-
         if (Application.platform == RuntimePlatform.WindowsPlayer|| Application.platform == RuntimePlatform.WindowsEditor)
         {
             _background.raycastTarget = false;

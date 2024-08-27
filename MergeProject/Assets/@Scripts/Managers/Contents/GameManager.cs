@@ -95,7 +95,6 @@ public class GameSaveData
         //        OnJoystickStateChanged?.Invoke(_joystickState);
         //    }
         //}
-        //#endregion
 
         #region FoodChange
         FoodTableData _changeFoodType = new FoodTableData(0, FoodType.None);
@@ -142,6 +141,27 @@ public class GameSaveData
 
         public event Action<int> OnMoneyChanged;
 
+        #endregion
+
+        #region ActionButton
+        private bool _actionButton;
+
+        public bool ActionButton
+        {
+            get
+            {
+                return _actionButton;
+            }
+            set
+            {
+                _actionButton = value;
+                OnActionButtonChanged?.Invoke(_actionButton);
+            }
+        }
+
+        public event Action<bool> OnActionButtonChanged;
+
+        public GameObject go = null;
         #endregion
     }
     #endregion

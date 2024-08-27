@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static Define;
 
 public class HumanController : BaseController
 {
     [SerializeField]
-    private Define.HumanState _humanState = Define.HumanState.Idle;
+    private HumanState _humanState = HumanState.Idle;
 
     //[SerializeField]
     //Transform _breadTransform;
@@ -25,7 +26,6 @@ public class HumanController : BaseController
 
     protected float _speed = 3.0f;
     protected float _rotationSpeed = 10.0f;
-
     protected float RunSpeed = 1.5f;
 
     [SerializeField]
@@ -33,7 +33,7 @@ public class HumanController : BaseController
 
     protected NavMeshAgent agent;
 
-    public Define.HumanState HumanState
+    public HumanState HumanState
     {
         get { return _humanState; }
         set
@@ -47,23 +47,23 @@ public class HumanController : BaseController
     {
         switch (HumanState)
         {
-            case Define.HumanState.Idle:
+            case HumanState.Idle:
                 _animator.Play("idle");
                 _animator.SetInteger("arms", 5);
                 _animator.SetInteger("legs", 5);
                 break;
 
-            case Define.HumanState.Move:
+            case HumanState.Move:
                 _animator.Play("walk");
                 _animator.SetInteger("arms", 1);
                 _animator.SetInteger("legs", 1);
                 break;
 
-            case Define.HumanState.Talking:
+            case HumanState.Talking:
                 _animator.Play("Talking");
                 break;
 
-            case Define.HumanState.Run:
+            case HumanState.Run:
                 _animator.Play("run");
                 _animator.SetInteger("arms", 2);
                 _animator.SetInteger("legs", 2);
@@ -75,7 +75,7 @@ public class HumanController : BaseController
     {
         base.Init();
         _animator = GetComponentInChildren<Animator>();
-        HumanState = Define.HumanState.Idle;
+        HumanState = HumanState.Idle;
         agent = GetComponent<NavMeshAgent>();
 
         return true;

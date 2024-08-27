@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using static Define;
 
@@ -10,7 +11,11 @@ public class StuffLockController : StuffController
     CookingAreaType Type { get; set; } = CookingAreaType.None;
 
     private int _lockMoney;
+    private bool Once;
 
+    private bool CanIUnLock = false;
+
+   private SpriteOutlineApply _spriteOutlineApply;
     int LockMoney
     {
         get { return _lockMoney; }
@@ -29,13 +34,16 @@ public class StuffLockController : StuffController
     }
 
     [SerializeField]
-    TextMeshProUGUI text;
+    private TextMeshProUGUI text;
 
     public override bool Init()
     {
         if (!base.Init())
             return false;
+        Once = false;
 
+        _spriteOutlineApply = gameObject.AddComponent<SpriteOutlineApply>();
+        _spriteOutlineApply.OutLineOff();
         return true;
     }
 
@@ -43,11 +51,6 @@ public class StuffLockController : StuffController
     {
         Type = type;
         LockMoney = 100;
-    }
-
-    public override void UpdateController()
-    {
-        //PayForUnlock();
     }
 
     public void PayForUnlock()
@@ -67,11 +70,44 @@ public class StuffLockController : StuffController
         Destroy(gameObject);
     }
 
+    IEnumerator MoneyCheckUnlock()
+    {
+        if(CanIUnLock)
+        {
+            Once = true;
+
+            while(_lockMoney>0)
+            {
+                PayForUnlock();
+                yield return new WaitForSeconds(0.01f);
+            }
+          
+        }
+        else
+        yield return null;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (LockMoney <= Managers.Game.Money)
+        {
+            CanIUnLock = true;
+        }
+        else CanIUnLock = false;
+    }
     private void OnTriggerStay(Collider other)
     {
-        if(other !=null|| other.GetComponent<PlayerController>()==other)
+        if (other != null && other.GetComponent<PlayerController>() != null&&Managers.Game.ActionButton&&!Once)
         {
-            PayForUnlock();
+            StartCoroutine(MoneyCheckUnlock());
+           
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        CanIUnLock = false;
+        Managers.Game.ActionButton = false;
+    }
+
 }

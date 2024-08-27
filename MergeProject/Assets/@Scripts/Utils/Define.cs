@@ -17,7 +17,6 @@ public static class Define
         Burger,
         Hotdog,
         Coke,
-
         None
 
     }

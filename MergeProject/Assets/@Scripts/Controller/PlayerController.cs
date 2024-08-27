@@ -10,6 +10,8 @@ public class PlayerController : HumanController
     Vector3 _moveDir = Vector3.zero;
     [SerializeField]
     GameObject _maxText;
+
+    private OutLineApply _outLineApply;
     public void MaxTextOff()
     {
         _maxText.SetActive(false);
@@ -25,10 +27,32 @@ public class PlayerController : HumanController
         Managers.Game.OnMoveDirChanged -= HandleOnMoveDirChanged;
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
         Managers.Game.Camera.TargetChange(gameObject);
-
         return true;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "ActionAble")
+        {
+            
+            if (Managers.Game.go == null)
+            {
+               
+                Managers.Game.go = other.gameObject;
+                Debug.Log("체크  " + Managers.Game.go);
+            }
+               
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    { 
+        if(Managers.Game.go ==other.gameObject)
+        {
+            Debug.Log("나감" );
+            Managers.Game.go = null;
+        }
+    }
     void HandleOnMoveDirChanged(Vector3 dir)
     {
         _moveDir = dir;
@@ -39,7 +63,7 @@ public class PlayerController : HumanController
     {
         Vector3 dir = new Vector3(_moveDir.x, 0.0f, _moveDir.y) * _speed * Time.deltaTime;
         transform.position += dir;
-       // Debug.Log("_moveDir : " + _moveDir);
+        // Debug.Log("_moveDir : " + _moveDir);
 
 
         if (dir != Vector3.zero)
@@ -55,26 +79,26 @@ public class PlayerController : HumanController
             if (Input.GetKey(KeyCode.LeftShift))
             {
                 HumanState = Define.HumanState.Run;
-                transform.position += (dir*RunSpeed);
+                transform.position += (dir * RunSpeed);
             }
             else
-            HumanState = Define.HumanState.Move;
-           
+                HumanState = Define.HumanState.Move;
+
         }
         else
         {
             agent.velocity = Vector3.zero;
             HumanState = Define.HumanState.Idle;
 
-           
+
         }
 
         GetComponent<Rigidbody>().velocity = Vector3.zero;
     }
 
-    public void GetMoney(int num =1)
+    public void GetMoney(int num = 1)
     {
-        Managers.Game.Money+=num;
+        Managers.Game.Money += num;
     }
 
     public override void UpdateController()
