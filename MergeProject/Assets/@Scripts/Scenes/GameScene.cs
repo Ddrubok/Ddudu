@@ -44,7 +44,8 @@ public class GameScene : BaseScene
                 //Managers.Object.Spawn<CookingAreaController>(Vector3.left,(int)CookingAreaType.AirFryer);
                 //Managers.Object.Spawn<CookingAreaController>(Vector3.right,(int)CookingAreaType.BurgerStove);
                 //Managers.Object.Spawn<CookingAreaController>(Vector3.zero,(int)CookingAreaType.HotdogStove);
-
+                Managers.Object.Spawn<StuffLockController>(Vector3.zero,(int)CookingAreaType.AirFryer);
+                Managers.Game.Money = 100;
 
 
             }

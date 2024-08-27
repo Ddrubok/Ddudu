@@ -94,6 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8891197474765618056}
   - component: {fileID: 5353696005026226724}
+  - component: {fileID: 6281479823673708467}
   m_Layer: 0
   m_Name: Lock
   m_TagString: Untagged
@@ -130,7 +131,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5a115ffab428844ea03afe177ff92f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Type>k__BackingField: 5
   text: {fileID: 5971699535101166332}
+--- !u!65 &6281479823673708467
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3610609938391288628}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7030317286462687892
 GameObject:
   m_ObjectHideFlags: 0

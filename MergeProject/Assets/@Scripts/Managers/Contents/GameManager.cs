@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using static Define;
 using static UnityEngine.Rendering.DebugUI;
@@ -48,7 +49,7 @@ public class GameSaveData
             type = ft;
             num = n;
         }
-        public int num =0;
+        public int num = 0;
         public FoodType type = FoodType.None;
     }
 
@@ -97,7 +98,7 @@ public class GameSaveData
         //#endregion
 
         #region FoodChange
-        FoodTableData _changeFoodType = new FoodTableData(0,FoodType.None);
+        FoodTableData _changeFoodType = new FoodTableData(0, FoodType.None);
 
         public FoodTableData ChangeFoodType
         {
@@ -109,9 +110,9 @@ public class GameSaveData
             }
         }
 
-        public void changeFood(FoodType ft, int num=1)
+        public void changeFood(FoodType ft, int num = 1)
         {
-            ChangeFoodType = new FoodTableData( num,ft);
+            ChangeFoodType = new FoodTableData(num, ft);
         }
 
         public event Action<FoodTableData> OnPlusFoodChanged;
@@ -120,7 +121,30 @@ public class GameSaveData
         #region Action
         public event Action<Vector3> OnMoveDirChanged;
         #endregion
+
+
+        #region Money
+
+        private int _money;
+
+        public int Money
+        {
+            get
+            {
+                return _money;
+            }
+            set
+            {
+                _money = value;
+                OnMoneyChanged?.Invoke(_money);
+            }
+        }
+
+        public event Action<int> OnMoneyChanged;
+
+        #endregion
     }
     #endregion
+
 }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static Define;
 
 public class ObjectManager
 {
@@ -21,7 +22,7 @@ public class ObjectManager
     {
         System.Type type = typeof(T);
 
-        if (Player==null && type == typeof(PlayerController))
+        if (Player == null && type == typeof(PlayerController))
         {
             GameObject go = Managers.Resource.Instantiate("Human");
 
@@ -34,9 +35,9 @@ public class ObjectManager
 
             return pc as T;
         }
-        else if(type == typeof(DeliverableStuffController))
+        else if (type == typeof(DeliverableStuffController))
         {
-            if(templateID == 0)
+            if (templateID == 0)
             {
                 GameObject go = Managers.Resource.Instantiate("FrenchFrice");
 
@@ -46,7 +47,7 @@ public class ObjectManager
 
                 return fc as T;
             }
-            else if(templateID == 1)
+            else if (templateID == 1)
             {
                 GameObject go = Managers.Resource.Instantiate("Coke");
 
@@ -56,7 +57,7 @@ public class ObjectManager
 
                 return cc as T;
             }
-            else if(templateID== 2)
+            else if (templateID == 2)
             {
                 GameObject go = Managers.Resource.Instantiate("Burger");
 
@@ -66,7 +67,7 @@ public class ObjectManager
 
                 return bc as T;
             }
-            else if(templateID == 3)
+            else if (templateID == 3)
             {
                 GameObject go = Managers.Resource.Instantiate("Hotdog");
 
@@ -77,7 +78,7 @@ public class ObjectManager
                 return hc as T;
             }
         }
-        else if(type==typeof(CookingAreaController))
+        else if (type == typeof(CookingAreaController))
         {
             if (templateID == 0)
             {
@@ -89,7 +90,7 @@ public class ObjectManager
 
                 return ac as T;
             }
-            else if( templateID == 1)
+            else if (templateID == 1)
             {
                 GameObject go = Managers.Resource.Instantiate("DrinkMachine");
 
@@ -99,7 +100,7 @@ public class ObjectManager
 
                 return dm as T;
             }
-            else if(templateID== 2)
+            else if (templateID == 2)
             {
                 GameObject go = Managers.Resource.Instantiate("GasStove");
 
@@ -109,7 +110,7 @@ public class ObjectManager
 
                 return bm as T;
             }
-            else if(templateID== 3) 
+            else if (templateID == 3)
             {
                 GameObject go = Managers.Resource.Instantiate("GasStove");
 
@@ -119,7 +120,7 @@ public class ObjectManager
 
                 return hm as T;
             }
-            else if(templateID == 4)
+            else if (templateID == 4)
             {
                 GameObject go = Managers.Resource.Instantiate("FoodTable");
 
@@ -129,6 +130,18 @@ public class ObjectManager
 
                 return ft as T;
             }
+        }
+        else if (type == typeof(StuffLockController))
+        {
+            GameObject go = Managers.Resource.Instantiate("Lock");
+
+            go.transform.position = position;
+
+            StuffLockController slc = go.GetOrAddComponent<StuffLockController>();
+
+            slc.setLockObject((CookingAreaType)templateID);
+
+            return slc as T;
         }
         //else if (type == typeof(CustomerController))
         //{

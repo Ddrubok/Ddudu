@@ -6,6 +6,7 @@ using static Define;
 
 public class StuffLockController : StuffController
 {
+    [field: SerializeField]
     CookingAreaType Type { get; set; } = CookingAreaType.None;
 
     private int _lockMoney;
@@ -35,23 +36,42 @@ public class StuffLockController : StuffController
         if (!base.Init())
             return false;
 
-        LockMoney = 100;
-
-        Type = CookingAreaType.HotdogStove;
-
         return true;
+    }
+
+    public void setLockObject(CookingAreaType type)
+    {
+        Type = type;
+        LockMoney = 100;
     }
 
     public override void UpdateController()
     {
-        LockMoney--;
+        //PayForUnlock();
+    }
+
+    public void PayForUnlock()
+    {
+        if(Managers.Game.Money>0)
+        {
+            LockMoney--;
+            Managers.Game.Money--;
+        }
+        
     }
 
     void CreateCookingArea()
     {
-        Managers.Object.Spawn<CookingAreaController>(transform.position, (int)Type);
+        Managers.Object.Spawn<CookingAreaController>(Vector3.zero, (int)Type);
 
         Destroy(gameObject);
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if(other !=null|| other.GetComponent<PlayerController>()==other)
+        {
+            PayForUnlock();
+        }
+    }
 }
