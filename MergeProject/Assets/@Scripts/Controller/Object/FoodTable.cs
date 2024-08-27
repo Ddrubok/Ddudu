@@ -13,6 +13,7 @@ public class FoodTable : StuffController
         if(!base.Init())
             return false;
 
+        Managers.Game.OnPlusFoodChanged -= HandleOnFoodChanged;
         Managers.Game.OnPlusFoodChanged += HandleOnFoodChanged;
 
         for (FoodType i =0; i< FoodType.None-1;i++)

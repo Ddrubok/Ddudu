@@ -17,7 +17,6 @@ public class MoveController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
 
     void Start()
     {
-        Debug.Log("start");
 
         if (Application.platform == RuntimePlatform.WindowsPlayer|| Application.platform == RuntimePlatform.WindowsEditor)
         {
@@ -85,7 +84,7 @@ public class MoveController : MonoBehaviour, IPointerDownHandler, IPointerUpHand
             // 이동 방향 업데이트
             Managers.Game.MoveDir = _moveDir;
 
-            Debug.Log(Managers.Game.MoveDir);
+            //Debug.Log(Managers.Game.MoveDir);
         }
         else
         {

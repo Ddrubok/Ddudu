@@ -22,6 +22,7 @@ public class PlayerController : HumanController
     public override bool Init()
     {
         base.Init();
+        Managers.Game.OnMoveDirChanged -= HandleOnMoveDirChanged;
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
         Managers.Game.Camera.TargetChange(gameObject);
 
@@ -38,14 +39,14 @@ public class PlayerController : HumanController
     {
         Vector3 dir = new Vector3(_moveDir.x, 0.0f, _moveDir.y) * _speed * Time.deltaTime;
         transform.position += dir;
-        Debug.Log("_moveDir : " + _moveDir);
+       // Debug.Log("_moveDir : " + _moveDir);
 
 
         if (dir != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(dir);
 
-            Debug.Log("rotation : " + targetRotation);
+            //Debug.Log("rotation : " + targetRotation);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
@@ -69,6 +70,11 @@ public class PlayerController : HumanController
         }
 
         GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
+
+    public void GetMoney(int num =1)
+    {
+        Managers.Game.Money+=num;
     }
 
     public override void UpdateController()
