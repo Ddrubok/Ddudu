@@ -10,6 +10,10 @@ public class HumanController : BaseController
     [SerializeField]
     private HumanState _humanState = HumanState.Idle;
 
+    private clothing _clothing;
+
+    public clothing Clothing { get { return _clothing; } }
+
     //[SerializeField]
     //Transform _breadTransform;
     //public Transform BreadPos
@@ -77,6 +81,7 @@ public class HumanController : BaseController
         _animator = GetComponentInChildren<Animator>();
         HumanState = HumanState.Idle;
         agent = GetComponent<NavMeshAgent>();
+        _clothing = GetComponent<clothing>();
 
         return true;
     }

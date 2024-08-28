@@ -23,10 +23,12 @@ public class PlayerController : HumanController
     }
     public override bool Init()
     {
-        base.Init();
+        if (!base.Init())
+            return false;
         Managers.Game.OnMoveDirChanged -= HandleOnMoveDirChanged;
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
         Managers.Game.Camera.TargetChange(gameObject);
+        Clothing.PlayerInit();
         return true;
     }
 

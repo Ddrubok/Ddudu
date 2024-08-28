@@ -233,10 +233,7 @@ public class clothing : MonoBehaviour
         trousers.SetActive(false);
     }
 
-    void PlayerInit()
-    {
-        StartCoroutine(start_CustomClothing(1, 0, 0, 0, 0, 0, 1, true, 1, false, 0, 0, false, 0, 0, 0, 0));  
-    }
+   
 
     IEnumerator start_CustomClothing(
     int skinColor,
@@ -397,6 +394,7 @@ public class clothing : MonoBehaviour
 
     Coroutine coroutine_random_clothing;
 
+    [System.Obsolete]
     IEnumerator start_random_clothing()
     {
         yield return new WaitForSeconds(0);
@@ -416,10 +414,6 @@ public class clothing : MonoBehaviour
 
         // determining male or female
         int male_female = UnityEngine.Random.Range(0, 2);
-
-
-
-
         // does a hat fit for the hair
 
 
@@ -429,7 +423,7 @@ public class clothing : MonoBehaviour
         // male
         if (male_female == 0)
         {
-            hat = true;
+            hat = false;
 
             // choose hair type   hair_a , hair_b  , hair_e
             int hair = UnityEngine.Random.Range(0, 3);
@@ -712,6 +706,10 @@ public class clothing : MonoBehaviour
             // suits
 
             int which_suit = 1;
+            while (which_suit==1)
+            {
+                which_suit = Random.RandomRange(0, 10);
+            }
 
 
 
@@ -1046,22 +1044,14 @@ public class clothing : MonoBehaviour
         StartCoroutine(start_random_clothing());
     }
 
-
-    private void Start()
+    public void PlayerInit()
     {
-        //coroutine_random_clothing = StartCoroutine(start_random_clothing());
-        PlayerInit();
+        StartCoroutine(start_CustomClothing(1, 0, 0, 0, 0, 0, 1, true, 1, false, 0, 0, false, 0, 0, 0, 0));
     }
 
-    void Update()
-    {
-        //if(!show_run)
-        //{
-        //    show_run = true;
-
-        //    coroutine_random_clothing = StartCoroutine(start_random_clothing());
-
-
-        //}
-    }
+    //private void Start()
+    //{
+    //    //coroutine_random_clothing = StartCoroutine(start_random_clothing());
+    //    PlayerInit();
+    //}
 }

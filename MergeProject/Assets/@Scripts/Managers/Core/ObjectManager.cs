@@ -9,7 +9,7 @@ public class ObjectManager
 {
     public PlayerController Player { get; private set; }
 
-    //public HashSet<CustomerController> Customers { get; } = new HashSet<CustomerController>();
+    public HashSet<CustomerController> Customers { get; } = new HashSet<CustomerController>();
 
     //public HashSet<CroassantController> Croassants { get; } = new HashSet<CroassantController>();
 
@@ -143,6 +143,15 @@ public class ObjectManager
 
             return slc as T;
         }
+        else if (type == typeof(CustomerController))
+        {
+            GameObject go = Managers.Resource.Instantiate("Human");
+            go.transform.position = position;
+
+            CustomerController cc = go.GetOrAddComponent<CustomerController>();
+            Customers.Add(cc);
+            return cc as T;
+        }
         //else if (type == typeof(CustomerController))
         //{
         //    GameObject go = Manager.Resource.Instantiate("Prefabs\\Customer");
@@ -197,34 +206,30 @@ public class ObjectManager
         return null;
     }
 
-    //public void Despawn<T>(T obj) where T : BaseController
-    //{
-    //    //if (obj.IsValid() == false)
-    //    //{
-    //    //    int a = 3;
-    //    //}
+    public void Despawn<T>(T obj) where T : BaseController
+    {
+        //if (obj.IsValid() == false)
+        //{
+        //    int a = 3;
+        //}
 
-    //    System.Type type = typeof(T);
+        System.Type type = typeof(T);
 
-    //    if (type == typeof(PlayerController))
-    //    {
-    //        // ?
-    //    }
-    //    else if (type == typeof(CroassantController))
-    //    {
-    //        Croassants.Remove(obj as CroassantController);
-    //        Manager.Resource.Destroy(obj.gameObject);
-    //    }
-    //    else if (type == typeof(CustomerController))
-    //    {
-    //        Customers.Remove(obj as CustomerController);
-    //        Manager.Resource.Destroy(obj.gameObject);
-    //    }
-    //    else if (type == typeof(MoneyController))
-    //    {
-    //        Manager.Resource.Destroy(obj.gameObject);
-    //    }
-    //}
+        if (type == typeof(PlayerController))
+        {
+            // ?
+        }
+      
+        else if (type == typeof(CustomerController))
+        {
+            Customers.Remove(obj as CustomerController);
+            Managers.Resource.Destroy(obj.gameObject);
+        }
+        //else if (type == typeof(MoneyController))
+        //{
+        //    Manager.Resource.Destroy(obj.gameObject);
+        //}
+    }
 
     public Sprite GetSprite(string name)
     {
