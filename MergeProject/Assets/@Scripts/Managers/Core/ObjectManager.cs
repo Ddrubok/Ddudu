@@ -11,6 +11,8 @@ public class ObjectManager
 
     public HashSet<CustomerController> Customers { get; } = new HashSet<CustomerController>();
 
+    public Dictionary<string,StuffController> CookingAreas { get;  } = new Dictionary<string, StuffController>();
+
     //public HashSet<CroassantController> Croassants { get; } = new HashSet<CroassantController>();
 
     public Dictionary<string, Sprite> DicSprite = new Dictionary<string, Sprite>();
@@ -88,6 +90,7 @@ public class ObjectManager
 
                 AirFryerController ac = go.GetOrAddComponent<AirFryerController>();
 
+                CookingAreas["AirFryer"] = ac;
                 return ac as T;
             }
             else if (templateID == 1)
@@ -97,7 +100,7 @@ public class ObjectManager
                 go.transform.position = position;
 
                 DrinkMachineController dm = go.GetOrAddComponent<DrinkMachineController>();
-
+                CookingAreas["DrinkMachine"] = dm;
                 return dm as T;
             }
             else if (templateID == 2)
@@ -107,7 +110,7 @@ public class ObjectManager
                 go.transform.position = position;
 
                 BurgerMakerController bm = go.GetOrAddComponent<BurgerMakerController>();
-
+                CookingAreas["GasStove"] = bm;
                 return bm as T;
             }
             else if (templateID == 3)
@@ -117,7 +120,7 @@ public class ObjectManager
                 go.transform.position = position;
 
                 HotdogMakerController hm = go.GetOrAddComponent<HotdogMakerController>();
-
+                CookingAreas["GasStove"] = hm;
                 return hm as T;
             }
             else if (templateID == 4)
@@ -127,7 +130,7 @@ public class ObjectManager
                 go.transform.position = position;
 
                 FoodTable ft = go.GetOrAddComponent<FoodTable>();
-
+                CookingAreas["FoodTable"] = ft;
                 return ft as T;
             }
         }

@@ -72,6 +72,12 @@ public class HumanController : BaseController
                 _animator.SetInteger("arms", 2);
                 _animator.SetInteger("legs", 2);
                 break;
+
+            case HumanState.SitDown:
+                _animator.Play("sit down");
+                _animator.SetInteger("legs", 3);
+                _animator.SetInteger("arms", 3);
+                break;
         }
     }
 

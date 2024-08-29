@@ -394,7 +394,6 @@ public class clothing : MonoBehaviour
 
     Coroutine coroutine_random_clothing;
 
-    [System.Obsolete]
     IEnumerator start_random_clothing()
     {
         yield return new WaitForSeconds(0);
@@ -710,10 +709,6 @@ public class clothing : MonoBehaviour
             {
                 which_suit = Random.RandomRange(0, 10);
             }
-
-
-
-
             // bankersuit    0
             // cocksuit      1
             // farmersuit    2

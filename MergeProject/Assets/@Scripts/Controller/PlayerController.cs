@@ -4,6 +4,7 @@ using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using static Define;
 
 public class PlayerController : HumanController
 {
@@ -29,6 +30,8 @@ public class PlayerController : HumanController
         Managers.Game.OnMoveDirChanged += HandleOnMoveDirChanged;
         Managers.Game.Camera.TargetChange(gameObject);
         Clothing.PlayerInit();
+        HumanState = HumanState.SitDown;
+
         return true;
     }
 
@@ -36,14 +39,10 @@ public class PlayerController : HumanController
     {
         if (other.tag == "ActionAble")
         {
-            
             if (Managers.Game.go == null)
             {
-               
                 Managers.Game.go = other.gameObject;
-                Debug.Log("체크  " + Managers.Game.go);
             }
-               
         }
     }
 
@@ -51,7 +50,6 @@ public class PlayerController : HumanController
     { 
         if(Managers.Game.go ==other.gameObject)
         {
-            Debug.Log("나감" );
             Managers.Game.go = null;
         }
     }
@@ -65,14 +63,10 @@ public class PlayerController : HumanController
     {
         Vector3 dir = new Vector3(_moveDir.x, 0.0f, _moveDir.y) * _speed * Time.deltaTime;
         transform.position += dir;
-        // Debug.Log("_moveDir : " + _moveDir);
-
 
         if (dir != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(dir);
-
-            //Debug.Log("rotation : " + targetRotation);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * _rotationSpeed);
 
@@ -91,8 +85,6 @@ public class PlayerController : HumanController
         {
             agent.velocity = Vector3.zero;
             HumanState = Define.HumanState.Idle;
-
-
         }
 
         GetComponent<Rigidbody>().velocity = Vector3.zero;

@@ -39,7 +39,8 @@ public static class Define
         Move,
         Talking,
         BackHome,
-        Run
+        Run,
+        SitDown,
     }
 
     public enum StuffType

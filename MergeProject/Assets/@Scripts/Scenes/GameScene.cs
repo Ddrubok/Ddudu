@@ -37,7 +37,8 @@ public class GameScene : BaseScene
                 Managers.Object.OutLine = Managers.Resource.Load<Material>("OutLine");
 
                 Managers.Object.Spawn<PlayerController>(Vector3.zero);
-                Managers.Object.Spawn<CustomerController>(Vector3.right);
+                Managers.Object.Spawn<CookingAreaController>(new Vector3(5.5f,0.5f,1.5f), (int)CookingAreaType.FoodTable);
+               // Managers.Object.Spawn<CustomerController>(Vector3.right);
 
 
 

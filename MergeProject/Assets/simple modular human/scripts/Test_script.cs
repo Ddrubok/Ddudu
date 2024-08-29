@@ -22,7 +22,6 @@ public class Test_script : MonoBehaviour
 
     Vector3 sitting_position;
     Vector3 sitting_Rotation;
-
     Vector3 stealing_position;
     Vector3 stealing_Rotation;
 
@@ -95,9 +94,6 @@ public class Test_script : MonoBehaviour
         yield return new WaitForSeconds(0);
 
         transform.parent = aim_point.transform;
-       
-
-      
 
         Destroy(agent);
 
@@ -107,11 +103,9 @@ public class Test_script : MonoBehaviour
         transform.localPosition = sitting_position;
         transform.localEulerAngles = sitting_Rotation;
 
-
-
         yield return new WaitForSeconds(5);
 
-        agent =  gameObject.AddComponent<NavMeshAgent>();
+        agent =gameObject.AddComponent<NavMeshAgent>();
 
 
         in_sitting = false;
@@ -147,8 +141,6 @@ public class Test_script : MonoBehaviour
     {
         yield return new WaitForSeconds(0);
 
-
-
         ani.SetInteger("legs", 32);
         ani.SetInteger("arms", 32);
 
@@ -157,7 +149,6 @@ public class Test_script : MonoBehaviour
 
         in_pickup = false;
         destermine_new_aim = false;
-        
 
         StopCoroutine(pickup_start);
     }
@@ -289,8 +280,6 @@ public class Test_script : MonoBehaviour
                 if (Vector3.Distance(transform.position, aim_point.transform.position) < 0.25f)
                 {
                     agent.speed = 0;
-
-
                     if(!in_sitting)
                     {
                         in_sitting = true;
@@ -334,7 +323,6 @@ public class Test_script : MonoBehaviour
             {
                 if (Vector3.Distance(transform.position, aim_point.transform.position) > 0.25f)
                 {
-                    
                     agent.speed = walk_speed;
                     agent.SetDestination(aim_point.transform.position);
                     ani.SetInteger("arms", 1);
@@ -344,9 +332,6 @@ public class Test_script : MonoBehaviour
                 if (Vector3.Distance(transform.position, aim_point.transform.position) < 0.25f)
                 {
                     agent.speed = 0;
-
-                   
-
                     if (!in_pickup)
                     {
                         in_pickup = true;
