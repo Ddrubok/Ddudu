@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class CustomerSpawner : BaseController
 {
@@ -9,7 +10,9 @@ public class CustomerSpawner : BaseController
     {
         while (true)
         {
-            yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(0.1f);
+            if (Managers.Object.Customers.Count >= MaxCustomerCount)
+                continue;
             Managers.Object.Spawn<CustomerController>(transform.position);
         }
      

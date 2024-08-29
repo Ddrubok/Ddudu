@@ -62,6 +62,8 @@ public static class Define
         Close
     }
 
+    public static int MaxCustomerCount = 1;
+
     public static float CroassantSpeed = 104.0f;
     public static float OvenTime = 1.0f;
     public static int MaxBread = 8;
@@ -72,7 +74,6 @@ public static class Define
 
     public static int minCustomerBreadValue = 2;
     public static int maxCustomerBreadValue = 5;
-    public static int MaxCustomerCount = 3;
 
     public static float sellBreadX = -0.8f;
 

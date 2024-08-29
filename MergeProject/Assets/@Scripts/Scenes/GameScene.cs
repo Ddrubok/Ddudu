@@ -28,12 +28,9 @@ public class GameScene : BaseScene
     {
         Managers.Resource.LoadAllAsync<Object>("PreLoad", (key, count, totalCount) =>
         {
-            Debug.Log($"{key} {count}/{totalCount}");
-
             if (count == totalCount)
             {
                 //Managers.Data.Init();
-                //Managers.Resource.Instantiate("Human");
                 Managers.Object.OutLine = Managers.Resource.Load<Material>("OutLine");
 
                 Managers.Object.Spawn<PlayerController>(Vector3.zero);
