@@ -50,7 +50,6 @@ public static class Define
 
     public enum CustomerSituation
     {
-        BreadPick,
         Paying,
         WantTable,
         BackHome,

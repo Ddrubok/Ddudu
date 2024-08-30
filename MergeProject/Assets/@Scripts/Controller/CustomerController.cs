@@ -6,7 +6,7 @@ using static Define;
 public class CustomerController : HumanController
 {
     [SerializeField]
-    private Define.CustomerSituation _customerSituation = Define.CustomerSituation.BreadPick;
+    private Define.CustomerSituation _customerSituation = Define.CustomerSituation.Paying;
 
     public bool isArrive { get; private set; } = false;
     public CustomerSituation CustomerSituation
@@ -45,34 +45,29 @@ public class CustomerController : HumanController
 
     void UpdateSituation()
     {
-        switch (CustomerSituation)
-        {
-            //case CustomerSituation.BreadPick:
-            //    arriveName = "CustomerBasket";
-            //    MoveToTarger(arriveName, Vector3.forward * Define.CustomerLength);
-            //    break;
+        //switch (CustomerSituation)
+        //{
+        //    case CustomerSituation.Paying:
 
-            //case CustomerSituation.Paying:
+        //        arriveName = "CheckoutCounter";
+        //        MoveToTarger(arriveName, -Vector3.forward * Define.CustomerLength);
+        //        break;
 
-            //    arriveName = "CheckoutCounter";
-            //    MoveToTarger(arriveName, -Vector3.forward * Define.CustomerLength);
-            //    break;
+        //    case CustomerSituation.WantTable:
+        //        arriveName = "Table";
+        //        if (Manager.Game.TargetPosition.ContainsKey(arriveName))
+        //            MoveToTarger(arriveName, Vector3.right * Define.CustomerLength);
+        //        else
+        //        {
+        //            MoveToPosition(transform.position + (Vector3.left * Define.CustomerWidth));
+        //            StartCoroutine(WaitForComponentToSpawn());
+        //        }
+        //        break;
 
-            //case CustomerSituation.WantTable:
-            //    arriveName = "Table";
-            //    if (Manager.Game.TargetPosition.ContainsKey(arriveName))
-            //        MoveToTarger(arriveName, Vector3.right * Define.CustomerLength);
-            //    else
-            //    {
-            //        MoveToPosition(transform.position + (Vector3.left * Define.CustomerWidth));
-            //        StartCoroutine(WaitForComponentToSpawn());
-            //    }
-            //    break;
-
-            //case CustomerSituation.BackHome:
-            //    MoveToPosition(transform.position + (Vector3.right * Define.CustomerWidth));
-            //    break;
-        }
+        //    case CustomerSituation.BackHome:
+        //        MoveToPosition(transform.position + (Vector3.right * Define.CustomerWidth));
+        //        break;
+        //}
     }
 
     public void OnArriveAtTarget()
@@ -99,4 +94,19 @@ public class CustomerController : HumanController
         //        break;
         //}
     }
+
+    //public void MoveToTarger(string a, Vector3 v3)
+    //{
+    //    isArrive = false;
+    //    agent.isStopped = false;
+    //    bool isset = agent.SetDestination(Managers.Game.TargetPosition[a].SetTargetPosition(this, v3));
+    //}
+
+    public void MoveToPosition(Vector3 v3)
+    {
+        isArrive = false;
+        agent.isStopped = false;
+        agent.SetDestination(v3);
+    }
+
 }

@@ -707,7 +707,7 @@ public class clothing : MonoBehaviour
             int which_suit = 1;
             while (which_suit==1)
             {
-                which_suit = Random.RandomRange(0, 10);
+                which_suit = Random.Range(0, 10);
             }
             // bankersuit    0
             // cocksuit      1
