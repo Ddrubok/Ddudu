@@ -155,6 +155,16 @@ public class ObjectManager
             Customers.Add(cc);
             return cc as T;
         }
+
+        else if(type == typeof(CustomerSpawner))
+        {
+            GameObject go = Managers.Resource.Instantiate("Human");
+            go.transform.position = position;
+
+            CustomerSpawner cs = go.GetOrAddComponent<CustomerSpawner>();
+
+            return cs as T;
+        }
         //else if (type == typeof(CustomerController))
         //{
         //    GameObject go = Manager.Resource.Instantiate("Prefabs\\Customer");

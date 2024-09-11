@@ -8,8 +8,6 @@ public class Managers : MonoBehaviour
     private static Managers s_instance;
     public static Managers Instance { get { Init(); return s_instance; } }
 
-    public static string Jwt { get; set; }
-
     #region Core
     private GameManager _game = new GameManager();
     private DataManager _data = new DataManager();
@@ -28,12 +26,10 @@ public class Managers : MonoBehaviour
     public static SceneManagerEx Scene { get { return Instance?._scene; } }
     public static SoundManager Sound { get { return Instance?._sound; } }
     public static UIManager UI { get { return Instance?._ui; } }
-
     public static ObjectManager Object { get { return Instance?._object; } }
     public static WebManager Web { get { return Instance?._web; } }
 
     #endregion
-
 
     public static void Init()
     {
@@ -47,21 +43,15 @@ public class Managers : MonoBehaviour
             }
 
             DontDestroyOnLoad(go);
-
-            // 초기화
             s_instance = go.GetComponent<Managers>();
         }
     }
 
-
-    private void OnApplicationQuit()
+    private void OnDestroy()
     {
-        if (s_instance != null)
+        if (s_instance == this)
         {
-            s_instance = null;
-            Destroy(gameObject);
+            s_instance = null; // 인스턴스 초기화
         }
-          
-        
     }
 }

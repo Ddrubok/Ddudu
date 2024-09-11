@@ -27,7 +27,6 @@ public class StuffLockController : StuffController
             else
             {
                 CreateCookingArea();
-                Debug.Log("boooooooom");
             }
               
         }

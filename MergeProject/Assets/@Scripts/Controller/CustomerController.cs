@@ -8,6 +8,9 @@ public class CustomerController : HumanController
     [SerializeField]
     private Define.CustomerSituation _customerSituation = Define.CustomerSituation.Paying;
 
+    [SerializeField]
+    private string arriveName;
+
     public bool isArrive { get; private set; } = false;
     public CustomerSituation CustomerSituation
     {
@@ -16,6 +19,7 @@ public class CustomerController : HumanController
         {
             _customerSituation = value;
             UpdateSituation();
+            
         }
     }
     public override bool Init()
@@ -24,8 +28,8 @@ public class CustomerController : HumanController
             return false;
 
         Clothing.CustomerRandomInit();
+        CustomerSituation = CustomerSituation.Paying;
 
-        agent.SetDestination(Managers.Object.CookingAreas["FoodTable"].transform.position);
         return true;
     }
 
@@ -34,6 +38,8 @@ public class CustomerController : HumanController
         if (IsDestinationReached())
         {
             Debug.Log("목적지에 도착했습니다!");
+            
+            OnArriveAtTarget();
         }
     }
 
@@ -45,34 +51,37 @@ public class CustomerController : HumanController
 
     void UpdateSituation()
     {
-        //switch (CustomerSituation)
-        //{
-        //    case CustomerSituation.Paying:
+        switch (CustomerSituation)
+        {
+            case CustomerSituation.Paying:
 
-        //        arriveName = "CheckoutCounter";
-        //        MoveToTarger(arriveName, -Vector3.forward * Define.CustomerLength);
-        //        break;
+                arriveName = "FoodTable";
+                MoveToTarger(arriveName, Vector3.zero);
+                HumanState = HumanState.Move;
+                break;
 
-        //    case CustomerSituation.WantTable:
-        //        arriveName = "Table";
-        //        if (Manager.Game.TargetPosition.ContainsKey(arriveName))
-        //            MoveToTarger(arriveName, Vector3.right * Define.CustomerLength);
-        //        else
-        //        {
-        //            MoveToPosition(transform.position + (Vector3.left * Define.CustomerWidth));
-        //            StartCoroutine(WaitForComponentToSpawn());
-        //        }
-        //        break;
+            //case CustomerSituation.WantTable:
+            //    arriveName = "Table";
+            //    if (Managers.Game.TargetPosition.ContainsKey(arriveName))
+            //        MoveToTarger(arriveName, Vector3.right * Define.CustomerLength);
+            //    else
+            //    {
+            //        MoveToPosition(transform.position + (Vector3.left * Define.CustomerWidth));
+            //        StartCoroutine(WaitForComponentToSpawn());
+            //    }
+            //    break;
 
-        //    case CustomerSituation.BackHome:
-        //        MoveToPosition(transform.position + (Vector3.right * Define.CustomerWidth));
-        //        break;
-        //}
+            case CustomerSituation.BackHome:
+                MoveToPosition(transform.position + (Vector3.right * Define.CustomerWidth));
+                break;
+        }
     }
 
     public void OnArriveAtTarget()
     {
         isArrive = true;
+        agent.isStopped = true;
+        HumanState = HumanState.Idle; 
         //if (Managers.Game.TargetPosition.ContainsKey(arriveName))
         //    LookAtTarget(Manager.Game.TargetPosition[arriveName].gameObject);
 
@@ -95,12 +104,12 @@ public class CustomerController : HumanController
         //}
     }
 
-    //public void MoveToTarger(string a, Vector3 v3)
-    //{
-    //    isArrive = false;
-    //    agent.isStopped = false;
-    //    bool isset = agent.SetDestination(Managers.Game.TargetPosition[a].SetTargetPosition(this, v3));
-    //}
+    public void MoveToTarger(string a, Vector3 v3)
+    {
+        isArrive = false;
+        agent.isStopped = false;
+        bool isset = agent.SetDestination(Managers.Object.CookingAreas[arriveName].transform.position);
+    }
 
     public void MoveToPosition(Vector3 v3)
     {

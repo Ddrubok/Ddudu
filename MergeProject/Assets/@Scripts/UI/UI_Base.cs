@@ -10,11 +10,6 @@ public class UI_Base : InitBase
 {
 	protected Dictionary<Type, UnityEngine.Object[]> _objects = new Dictionary<Type, UnityEngine.Object[]>();
 
-	private void Awake()
-	{
-		Init();
-	}
-
 	protected void Bind<T>(Type type) where T : UnityEngine.Object
 	{
 		string[] names = Enum.GetNames(type);
