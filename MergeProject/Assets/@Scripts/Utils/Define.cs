@@ -82,6 +82,8 @@ public static class Define
     public static float CustomerWidth = 3.0f;
 
     public static int TableBreadValue = 2;
+
+    public static float CustomerSpacing = 2.0f;
     public enum EScene
     {
         TitleScene,

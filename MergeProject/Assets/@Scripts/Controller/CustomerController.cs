@@ -56,7 +56,7 @@ public class CustomerController : HumanController
             case CustomerSituation.Paying:
 
                 arriveName = "FoodTable";
-                MoveToTarger(arriveName, Vector3.zero);
+                MoveToTarget(arriveName, Vector3.zero);
                 HumanState = HumanState.Move;
                 break;
 
@@ -104,7 +104,7 @@ public class CustomerController : HumanController
         //}
     }
 
-    public void MoveToTarger(string a, Vector3 v3)
+    public void MoveToTarget(string a, Vector3 v3)
     {
         isArrive = false;
         agent.isStopped = false;
